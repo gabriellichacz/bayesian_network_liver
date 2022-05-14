@@ -1,1 +1,3 @@
-# bayesian_network_liver
+# Bayesian network for Liver dataset
+
+Liver disorder data from BUPA Medical Research Ltd.
