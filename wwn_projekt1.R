@@ -256,7 +256,7 @@ for (i in 1:length(unique(dane1$sgpt))) {
   print(querygrain(ee, nodes="alkphos")$alkphos)
 }
 
-# gammagt po warunkiem sgpt i sgot
+# alkphos po warunkiem sgpt i sgot
 for (i in 1:length(unique(dane1$sgpt))) {
   for (j in 1:length(unique(dane1$sgot))) {
     ee1 <- setEvidence(junction, nodes = c("sgot", "sgpt"), states = c(as.character(unique(dane1$sgot))[i], as.character(unique(dane1$sgpt))[j]))
