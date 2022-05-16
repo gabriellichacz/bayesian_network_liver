@@ -232,12 +232,18 @@ remove(bn_dc_gs, bn_dc_hc, bn_dc_iamb, bn_dc_pc, bn_hc,
        siec_dc_gs, siec_dc_hc, siec_dc_iamb, siec_dc_pc, siec_gs, siec_hc, siec_iamb, siec_pc)
 
 ######################## rozklady warunkowe ######################## 
-bn.fit.barchart(bn$mcv)
-bn.fit.barchart(bn$alkphos)
-bn.fit.barchart(bn$sgpt)
-bn.fit.barchart(bn$sgot)
-bn.fit.barchart(bn$gammagt)
-bn.fit.barchart(bn$drinks)
+bn.fit.barchart(bn$mcv, xlab = "Prawdopodobieństwa", ylab = "Przedziały mcv", 
+                main = "Prawdopodobieństwa warunkowe dla węzła mcv \n (pod warunkiem drinks)")
+bn.fit.barchart(bn$alkphos, xlab = "Prawdopodobieństwa", ylab = "Przedziały alkphos",
+                main = "Prawdopodobieństwa warunkowe dla węzła alkphos \n (pod warunkiem sgot)")
+bn.fit.barchart(bn$sgpt, xlab = "Prawdopodobieństwa", ylab = "Przedziały sgpt", 
+                main = "Prawdopodobieństwa warunkowe dla węzła sgpt")
+bn.fit.barchart(bn$sgot, xlab = "Prawdopodobieństwa", ylab = "Przedziały sgot", 
+                main = "Prawdopodobieństwa warunkowe dla węzła sgot \n (pod warunkiem sgpt)")
+bn.fit.barchart(bn$gammagt, xlab = "Prawdopodobieństwa", ylab = "Przedziały gammagt", 
+                main = "Prawdopodobieństwa warunkowe dla węzła gammagt \n (pod warunkiem sgot i sgpt)")
+bn.fit.barchart(bn$drinks, xlab = "Prawdopodobieństwa", ylab = "Przedziały drinks", 
+                main = "Prawdopodobieństwa warunkowe dla węzła drinks \n (pod warunkiem sgot i gammagt)")
 
 ######################## prawdopodobienstwa warunkowe ########################
 junction <- compile(as.grain(bn)) # rozklad na drzewo wezlowe
@@ -265,7 +271,7 @@ for (i in 1:length(unique(dane1$sgpt))) {
   }
 }
 
-######################## prawdopodobienstwa warunkowe - na kartce ########################
+######################## prawdopodobienstwa warunkowe - recznie ########################
 licz_sgot_sgpt_11 <- 0; licz_sgot_sgpt_12 <- 0; licz_sgot_sgpt_13 <- 0;
 licz_sgot_sgpt_21 <- 0; licz_sgot_sgpt_22 <- 0; licz_sgot_sgpt_23 <- 0;
 licz_sgot_sgpt_31 <- 0; licz_sgot_sgpt_32 <- 0; licz_sgot_sgpt_33 <- 0;
